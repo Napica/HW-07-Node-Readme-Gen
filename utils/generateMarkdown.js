@@ -5,12 +5,9 @@
 // }
 
 function generateMarkdown(data) {
-  return `# ${data.title}
+  return `# ${data.projectTitle}
   
   `;
 }
 
-module.exports = { 
-    generateMarkdown,
-    // test: test 
-    };
+module.exports = generateMarkdown;

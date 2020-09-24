@@ -24,7 +24,7 @@ inquirer
     {
       type: "input",
       message:
-        "Please enter the installation process for this current project.  *note: Please utilize ' n` for formatting your installation instructions. ",
+        "Please enter the installation process for this current project.  *note: Please utilize '/n' or '<br/>' for formatting your installation instructions. ",
       name: "projectInstall",
     },
     // Project Usage Information
@@ -41,30 +41,34 @@ inquirer
         "Please enter the current guidelines on how to contribute to the current project.",
       name: "projectHowToContribute",
     },
-    //
+    // Project Contributor Details 
     {
       type: "input",
       message:
         "Please enter any details on individuals or entities that have contributed to this current project.",
       name: "projectContributors",
     },
+    // Project Contributor Test infomration
     {
       type: "input",
       message:
         "Please enter how a contributor can go about testing this current project.",
       name: "projectTest",
     },
+    // Project License Details
     {
       type: "checkbox",
       message: "Please choose from the list of applicable licenses below: ",
       choices: ["MIT", "Mozilla", "Apache", "Eclipse"],
       name: "projectLicense",
     },
+    // Project GitHub Username
     {
       type: "input",
       message: "Please enter your GitHub username for this current project.",
       name: "projectUsername",
     },
+    // Project Email Address
     {
       type: "input",
       message: "Please enter your contact email for this project",
@@ -72,12 +76,11 @@ inquirer
     },
   ])
   .then(function (data) {
-    // console.log(data);
-    fs.writeFile("genReadMe.md", JSON.stringify(data), function (err) {
+    fs.writeFile("genReadMe.md", generateMarkdown(data), function (err) {
       if (err) {
         return console.log(err);
       }
-      //   console.log("Success!");
+      console.log("Success!");
     });
   })
   .catch((err) => {
