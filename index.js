@@ -24,7 +24,7 @@ inquirer
     {
       type: "input",
       message:
-        "Please enter the installation process for this current project.  *note: Please use ",
+        "Please enter the installation process for this current project.  *note: Please utilize ' n` for formatting your installation instructions. ",
       name: "projectInstall",
     },
     // Project Usage Information
@@ -34,12 +34,14 @@ inquirer
         "Please enter any usage information that was used for this project.",
       name: "projectUsage",
     },
+    // Project Guideline Information
     {
       type: "input",
       message:
         "Please enter the current guidelines on how to contribute to the current project.",
       name: "projectHowToContribute",
     },
+    //
     {
       type: "input",
       message:
@@ -75,8 +77,11 @@ inquirer
       if (err) {
         return console.log(err);
       }
-    //   console.log("Success!");
+      //   console.log("Success!");
     });
+  })
+  .catch((err) => {
+    console.log(err);
   });
 
 // function to write README file
