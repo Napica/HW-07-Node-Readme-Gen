@@ -53,7 +53,7 @@ inquirer
       name: "projectTest",
     },
     {
-      type: "list",
+      type: "checkbox",
       message: "Please choose from the list of applicable licenses below: ",
       choices: ["MIT", "Mozilla", "Apache", "Eclipse"],
       name: "projectLicense",
@@ -70,7 +70,13 @@ inquirer
     },
   ])
   .then(function (data) {
-    console.log(data);
+    // console.log(data);
+    fs.writeFile("genReadMe.md", JSON.stringify(data), function (err) {
+      if (err) {
+        return console.log(err);
+      }
+    //   console.log("Success!");
+    });
   });
 
 // function to write README file
