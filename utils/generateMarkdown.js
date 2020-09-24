@@ -106,7 +106,9 @@ function generateMarkdown(data) {
   
   <hr>
   
-  #### If you have any questions or concerns of this project please contact ${data.projectEmail}
+  #### If you would like to know more, please see any other projects at [${data.projectUsername}](https://github.com/${data.projectUsername})
+
+  #### If you have any questions or concerns of this project please use the contact email: ${data.projectEmail}
   `;
 }
 
