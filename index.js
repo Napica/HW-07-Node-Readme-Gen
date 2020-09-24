@@ -57,7 +57,7 @@ inquirer
     },
     // Project License Details
     {
-      type: "checkbox",
+      type: "list",
       message: "Please choose from the list of applicable licenses below: ",
       choices: ["MIT", "Mozilla", "Apache", "Eclipse"],
       name: "projectLicense",

@@ -5,6 +5,18 @@
 // }
 
 function generateMarkdown(data) {
+  let licenseText = "";
+  if (data.projectLicense === "MIT") {
+    licenseText =
+      "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
+  } else if (data.projectLicense === "Mozilla"){
+    licenseText = "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)"
+  } else if (data.projectLicense === "Apache") {
+    licenseText = "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)"
+  } else if (data.projectLicense === "Eclipse") {
+    licenseText = "[![License](https://img.shields.io/badge/License-EPL%201.0-red.svg)](https://opensource.org/licenses/EPL-1.0)"
+  }
+
   return `
   # ${data.projectTitle}
   
@@ -74,6 +86,8 @@ function generateMarkdown(data) {
   
   <hr>
   
+  ${licenseText}
+
   <br/>
 
   ## Questions
