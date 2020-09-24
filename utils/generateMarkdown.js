@@ -1,26 +1,38 @@
 // function to generate markdown for README
 
-// var test = function() {
-//     return "this is a test"
-// }
-
 function generateMarkdown(data) {
   let licenseText = "";
   if (data.projectLicense === "MIT") {
     licenseText =
       "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
-  } else if (data.projectLicense === "Mozilla"){
-    licenseText = "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)"
+  } else if (data.projectLicense === "Mozilla") {
+    licenseText =
+      "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)";
   } else if (data.projectLicense === "Apache") {
-    licenseText = "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)"
+    licenseText =
+      "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
   } else if (data.projectLicense === "Eclipse") {
-    licenseText = "[![License](https://img.shields.io/badge/License-EPL%201.0-red.svg)](https://opensource.org/licenses/EPL-1.0)"
+    licenseText =
+      "[![License](https://img.shields.io/badge/License-EPL%201.0-red.svg)](https://opensource.org/licenses/EPL-1.0)";
+  }
+
+  let licenseNotice = "";
+  if (data.projectLicense === "MIT") {
+    licenseNotice = "This application is licensed under MIT";
+  } else if (data.projectLicense === "Mozilla") {
+    licenseNotice = "This application is licensed under Mozilla";
+  } else if (data.projectLicense === "Apache") {
+    licenseNotice = "This application is licensed under Apache";
+  } else if (data.projectLicense === "Eclipse") {
+    licenseNotice = "This application is licensed under Eclipese";
   }
 
   return `
   # ${data.projectTitle}
   
   <hr>
+
+  ${licenseText}
   
   <br/>
   
@@ -86,7 +98,7 @@ function generateMarkdown(data) {
   
   <hr>
   
-  ${licenseText}
+  ${licenseNotice}
 
   <br/>
 
